@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using GildedRoseKata.AgeingBehavior;
-using GildedRoseKata.QualityBehaviors;
 using Xunit;
 
 namespace GildedRoseKata.UnitTests
@@ -12,7 +11,7 @@ namespace GildedRoseKata.UnitTests
         {
             int initialSellIn = 10;
 
-            var product = new Product("", initialSellIn, 0, new NullAgeingBehavior(), new NullQualityBehavior());
+            var product = new Product("", initialSellIn, 0);
             var ageingBehavior = new IncreaseAgeBehavior();
 
             ageingBehavior.ChangeAge(product);

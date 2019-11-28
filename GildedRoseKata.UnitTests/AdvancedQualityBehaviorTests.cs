@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using GildedRoseKata.AgeingBehavior;
 using GildedRoseKata.QualityBehaviors;
 using System;
 using System.Collections.Generic;
@@ -26,7 +25,7 @@ namespace GildedRoseKata.UnitTests
         {
             Assert.True(sellIn <= 10);
 
-            var product = new Product("", sellIn, 10, new NullAgeingBehavior(), new NullQualityBehavior());
+            var product = new Product("", sellIn, 10);
             var qualityBehavior = new AdvancedQualityBehavior(new NullQualityBehavior(), _behaviorPhases);
 
             qualityBehavior.ChangeQuality(product);
@@ -45,7 +44,7 @@ namespace GildedRoseKata.UnitTests
 
             var behaviorPhasesRandomized = _behaviorPhases.OrderBy(_ => Guid.NewGuid()).ToList();
 
-            var product = new Product("", sellIn, 10, new NullAgeingBehavior(), new NullQualityBehavior());
+            var product = new Product("", sellIn, 10);
             var qualityBehavior = new AdvancedQualityBehavior(new NullQualityBehavior(), behaviorPhasesRandomized);
 
             qualityBehavior.ChangeQuality(product);
@@ -64,7 +63,7 @@ namespace GildedRoseKata.UnitTests
                 (new AdjustQualityBehavior(2), 10)
             };
 
-            var product = new Product("", 11, 10, new NullAgeingBehavior(), new NullQualityBehavior());
+            var product = new Product("", 11, 10);
             var qualityBehavior = new AdvancedQualityBehavior(defaultBehavior, behaviorPhases);
 
             qualityBehavior.ChangeQuality(product);

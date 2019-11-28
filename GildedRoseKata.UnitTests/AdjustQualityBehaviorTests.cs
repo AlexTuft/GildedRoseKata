@@ -1,9 +1,5 @@
 ﻿using FluentAssertions;
-using GildedRoseKata.AgeingBehavior;
 using GildedRoseKata.QualityBehaviors;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GildedRoseKata.UnitTests
@@ -20,7 +16,7 @@ namespace GildedRoseKata.UnitTests
             int initialQuality = 10;
             int expectedQualityAfterChange = initialQuality + changeRate;
 
-            var product = new Product("", 1, initialQuality, new NullAgeingBehavior(), new NullQualityBehavior());
+            var product = new Product("", 1, initialQuality);
             var qualityBehavior = new AdjustQualityBehavior(changeRate);
 
             qualityBehavior.ChangeQuality(product);
@@ -38,7 +34,7 @@ namespace GildedRoseKata.UnitTests
             int initialQuality = 10;
             int expectedQualityAfterChange = initialQuality + (changeRate * 2);
 
-            var product = new Product("", -1, initialQuality, new NullAgeingBehavior(), new NullQualityBehavior());
+            var product = new Product("", -1, initialQuality);
             var qualityBehavior = new AdjustQualityBehavior(changeRate);
 
             qualityBehavior.ChangeQuality(product);
