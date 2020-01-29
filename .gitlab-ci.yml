@@ -1,0 +1,6 @@
+before_script:
+  - dotnet restore 
+
+run-test:
+  script:
+    - dotnet test
